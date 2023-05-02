@@ -1,0 +1,42 @@
+{
+  "name": "todo-list",
+  "version": "0.0.1",
+  "description": "A simple to-do list",
+  "type": "module",
+  "scripts": {
+    "clean": "rd /s/q dist",
+    "build": "rollup -c",
+    "build:": "npm run clean && rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Astronaut-X-X/todo-list.git"
+  },
+  "keywords": [
+    "todo",
+    "list"
+  ],
+  "author": "307680186@qq.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Astronaut-X-X/todo-list/issues"
+  },
+  "homepage": "https://github.com/Astronaut-X-X/todo-list#readme",
+  "dependencies": {
+    "pinia": "^2.0.35",
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.1.0",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@rollup/plugin-replace": "^5.0.2",
+    "rollup": "^3.21.2",
+    "rollup-plugin-alias": "^2.2.0",
+    "rollup-plugin-chrome-extension": "^3.6.12",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-vue": "^6.0.0"
+  }
+}
