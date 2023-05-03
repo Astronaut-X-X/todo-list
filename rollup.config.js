@@ -5,6 +5,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
 import replace from '@rollup/plugin-replace';
+import image from '@rollup/plugin-image';
 import copy from 'rollup-plugin-copy';
 
 export default {
@@ -52,6 +53,7 @@ export default {
         json(),
         resolve(),
         commonjs(),
+        image(),
     ],
 };
 
