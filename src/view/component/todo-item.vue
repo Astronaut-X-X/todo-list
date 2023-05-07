@@ -29,14 +29,11 @@ function contentClass() {
 .todo-item {
     display: flex;
     align-items: center;
-
     padding: 12px 24px;
     margin: 6px 0px;
     border-radius: 6px;
-
     background: #FFF;
 
-    transition: .2s;
 
     .checkbox {
         width: 16px;
@@ -49,13 +46,22 @@ function contentClass() {
         display: flex;
         align-items: center;
         color: #4D555C;
-        font-weight: bold;
-        letter-spacing: 1px;
+        font-weight: lighter;
     }
 
     .icon {
         width: 24px;
         height: 24px;
+        opacity: 0;
+        transition: .2s;
+    }
+
+    .icon:hover {
+        opacity: 0.9;
+    }
+
+    .icon:active{
+        opacity: 0.618;
     }
 }
 </style>

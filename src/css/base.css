@@ -28,7 +28,7 @@
     General shadow
 */
 .g-shadow {
-    border-radius: 5.5%;
+    border-radius: 24px;
     border: 1px solid #ebebeb;
     transition: .2s;
 }
@@ -43,7 +43,6 @@
 .g-button {
     padding: 12px 24px;
     font-weight: bold;
-    letter-spacing: 2px;
     border-radius: 6px;
     transition: .2s;
 }
@@ -52,7 +51,7 @@
     color: #FFFFFF00;
 }
 
-.g-comfirm {
+.g-confirm {
     color: #16181a;
     background-color: #FFF;
 }
@@ -65,7 +64,6 @@
 .g-button:hover {
     color: #16181a;
     font-weight: bold;
-    letter-spacing: 2px;
     font-weight: bold;
     background-color: #FFF;
     box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5);
@@ -82,13 +80,9 @@
 */
 .g-input {
     padding: 12px 24px;
-
     border-radius: 6px;
-
     color: #4D555C;
-    font-weight: bold;
-    letter-spacing: 1px;
-
+    font-weight: lighter;
     transition: .2s;
 }
 

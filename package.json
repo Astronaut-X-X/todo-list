@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/Astronaut-X-X/todo-list#readme",
   "dependencies": {
+    "animate.css": "^4.1.1",
     "pinia": "^2.0.35",
     "uuid": "^9.0.0",
     "vue": "^3.2.47"
@@ -38,8 +39,10 @@
     "rollup-plugin-alias": "^2.2.0",
     "rollup-plugin-chrome-extension": "^3.6.12",
     "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-scss": "^3.0.0",
+    "rollup-plugin-serve": "^2.0.2",
     "rollup-plugin-vue": "^6.0.0",
     "sass": "^1.62.1"
   }

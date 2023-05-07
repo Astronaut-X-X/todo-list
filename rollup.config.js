@@ -7,6 +7,8 @@ import postcss from 'rollup-plugin-postcss';
 import replace from '@rollup/plugin-replace';
 import image from '@rollup/plugin-image';
 import copy from 'rollup-plugin-copy';
+import livereload from 'rollup-plugin-livereload'
+import serve from 'rollup-plugin-serve'
 
 export default {
     input: 'src/manifest.json',
@@ -54,6 +56,12 @@ export default {
         resolve(),
         commonjs(),
         image(),
+        livereload(),
+        serve({
+            open: true,
+            port: 8082,
+            contentBase: 'dist'
+        })
     ],
 };
 

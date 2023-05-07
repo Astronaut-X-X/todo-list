@@ -14,7 +14,7 @@ import todoBox from './component/todo-box.vue';
     width: 100vw;
     height: 100vh;
 
-    background-image: linear-gradient(45deg, #EDF3F8, #FFFFFF);
+    background-color: #FFFFFF;
 
     display: flex;
     flex-direction: row;

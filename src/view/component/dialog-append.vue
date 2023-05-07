@@ -2,10 +2,10 @@
     <div class="dialog-append" v-if="visible">
         <div class="box">
             <div class="row t-center w-p-100">
-                <input class="g-input w-p-50" type="text" v-model="content">
+                <input class="g-input w-p-50" ref="input" type="text" v-model="content">
             </div>
             <div class="row">
-                <button class="g-button g-comfirm" @click="comfirm">CONFIRM</button>
+                <button class="g-button g-confirm" @click="confirm">CONFIRM</button>
                 <button class="g-button g-cancel m-l-12" @click="cancel">CANCEL</button>
             </div>
         </div>
@@ -14,7 +14,7 @@
   
 <script setup>
 import { v4 as uuidv4 } from 'uuid';
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted, watchEffect } from 'vue'
 
 const emit = defineEmits(['comfirm', 'cancel'])
 
@@ -23,14 +23,26 @@ const props = defineProps({
 })
 
 const content = ref('')
+const input = ref(null)
 
 onMounted(() => {
-
+    document.addEventListener('keyup', enterEvent)
 })
 
-function comfirm() {
+onUnmounted(() => {
+    document.removeEventListener('keyup', enterEvent)
+})
+
+watchEffect(() => {
+    if (input.value) {
+        input.value.focus()
+    }
+})
+
+function confirm() {
     // TODO check content
-    emit('comfirm', generateTodoItme(content.value))
+    emit('confirm', generateTodoItme(content.value))
+    content.value = ""
 }
 
 function checkContent() {
@@ -55,8 +67,19 @@ function generateTodoItme(content) {
 
 function cancel() {
     emit('cancel')
+    content.value = ""
 }
 
+function enterEvent(event){
+    if (!props.visible) { return }
+
+    let e = event || window.event
+    let keyCode = e.keyCode || e.which
+    switch (keyCode) {
+    	case 13:
+	    confirm()
+    }
+}
 </script>
   
 <style scoped lang="scss">

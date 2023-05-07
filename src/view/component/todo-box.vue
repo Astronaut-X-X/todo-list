@@ -1,17 +1,20 @@
 <template>
-    <div class="todo-box g-shadow">
+    <div class="todo-box">
         <div class="tool-row">
-            <div class="timer">{{ timeStr }}</div>
+            <div class="timer" v-show="false">{{ timeStr }}</div>
             <button class="g-button g-default" @click="append"> APPEND </button>
         </div>
 
         <div class="todo-list">
             <div class="item-row" v-for="item in todoList" :key="item._uuid">
-                <todoItem v-if="!item._delete" :item="item" @deleteItem="deleteItem"></todoItem>
+                <transition enter-active-class="animate__animated animate__fadeOutRight"
+                    leave-active-class="animate__animated animate__fadeOutRight">
+                    <todoItem v-if="!item._delete" :item="item" @deleteItem="deleteItem"></todoItem>
+                </transition>
             </div>
         </div>
 
-        <dialogAppend :visible="visible" @comfirm="comfirm" @cancel="cancel"></dialogAppend>
+        <dialogAppend :visible="visible" @confirm="confirm" @cancel="cancel"></dialogAppend>
     </div>
 </template>
   
@@ -67,7 +70,7 @@ function deleteItem(_uuid) {
     })
 }
 
-function comfirm(todoItem) {
+function confirm(todoItem) {
     todoList.value.push(todoItem)
     visible.value = false
 }
@@ -90,13 +93,13 @@ function updateTodoData() {
 .todo-box {
     width: 560px;
     height: 85.4%;
-
     position: relative;
-
     padding: 24px;
-
+    border-radius: 24px;
     display: flex;
     flex-direction: column;
+    background-color: #EDF3F8;
+    box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5);
 
     .tool-row {
         display: flex;
@@ -113,7 +116,8 @@ function updateTodoData() {
 
     .todo-list {
         flex: 1;
-        overflow: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
 }
